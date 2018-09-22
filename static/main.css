@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #01529C;
+  background-color: #01529C !important;
   height: 100%;
 }
 
@@ -11,7 +11,6 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
 }
 
 .form-signin {
@@ -19,6 +18,7 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  color: white;
 }
 .form-signin .checkbox {
   font-weight: 400;
