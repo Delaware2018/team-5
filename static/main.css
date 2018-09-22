@@ -1,7 +1,6 @@
 html,
 body {
   background-color: #01529C !important;
-  height: 100%;
 }
 
 body {
@@ -44,10 +43,24 @@ body {
   border-top-right-radius: 0;
 }
 
+<<<<<<< HEAD
+.form-wrapper {
+  color: white;
+  margin: auto;
+  width: 80%;
+  max-width: 650px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+=======
 .main-header {
 
 }
 
 .main-header-text {
 
+>>>>>>> b0a8f9f8d587e278c349e8edae49236f56048d9c
 }
