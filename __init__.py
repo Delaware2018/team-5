@@ -87,7 +87,7 @@ def main_page():
     combined_data.append(user_data)
     for d in leader_data:
         combined_data.append(d)
-    
+
     
     return render_template('home.html')
 
@@ -131,6 +131,8 @@ def signup():
     account_data[data_fields[index]] = chars
     index += 1
     account_data[data_fields[index]] = list()
+    index += 1
+    account_data[data_fields[index]] = 0
     with open('static\\account_data.json', 'w') as outfile:
         json.dump(account_data, outfile)
     if len(account_data) < 8:
