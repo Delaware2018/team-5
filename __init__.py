@@ -78,16 +78,21 @@ def index():
 
 @app.route('/home', methods=["GET", "POST"])
 def main_page():
-    user_data = None
+    global user
+
     leader_data = None
-    with open(os.path.join('static','account_data.json')) as data:
-        user_data = json.load(data)
-    full_name = user_data['first_name'] + " " + user_data['last_name']
     with open(os.path.join('static','leader_data.json')) as data:
         leader_data = json.load(data)
+    combined_data = list()
+    total = 0
+    for event in user['data']["history"]:
+        total += event["value"]
+    user["total"] = total
+    combined_data.append(user)
+    for d in leader_data:
+        combined_data.append(d)
     
-    
-    return render_template('home.html')
+    return render_template('home.html', user=user)
 
 
 @app.route('/upload')
@@ -128,8 +133,8 @@ def signup():
             take_chars = True
     account_data[data_fields[index]] = chars
     index += 1
-    account_data[data_fields[index]] = list()
-    with open(os.path.join('static','account_data.json'), 'w') as outfile:
+    account_data[data_fields[index]] = []
+    with open(os.path.join('static', 'account_data.json'), 'w') as outfile:
         json.dump(account_data, outfile)
     if len(account_data) < 8:
         return render_template('survey.html', title = 'Signup', form=form)
@@ -157,6 +162,7 @@ def _format_data():
     entry_dict['data'] = data_dict
 
     user = User(entry_dict)
+    user['email'] = raw_data['email']
 
 @app.route('/profile')
 def profile_page():
