@@ -20,16 +20,10 @@ import os.path
 app = Flask(__name__)
 app.config.from_object(Config)
 user = None
-
-
-# with open("static/joe.json") as data:
-#     entry_dict = json.load(data)
-#     user = User(entry_dict)
-
+account_info_trans = None
 
 def set_login_state(state): #state should be either 'True' or 'False'
     open('is_logged_in.txt', 'w').write(state)
-
 
 def create_app(configfile = None):
     #app = Flask(__name__)
@@ -39,7 +33,6 @@ def create_app(configfile = None):
     app.config['BOOTSTRAP_SERVE_LOCAL'] = True
     nav.init_app(app)
     return app
-
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -74,6 +67,8 @@ def index():
     elif account_data == {"phone":"","last_name":""}:
         return render_template("login.html", title = 'Signup', form=form)
     else:
+        global account_info_trans
+        account_info_trans = account_data
         return redirect("signup")
 
 @app.route('/home', methods=["GET", "POST"])
@@ -108,7 +103,6 @@ def upload_file():
       user['data']['history'].extend(items)
 
       flash('Thanks for you receipt!')
-      print(user)
       return redirect('home')
 
 
@@ -137,7 +131,7 @@ def signup():
     with open(os.path.join('static', 'account_data.json'), 'w') as outfile:
         json.dump(account_data, outfile)
     if len(account_data) < 8:
-        return render_template('survey.html', title = 'Signup', form=form)
+        return render_template('survey.html', title = 'Signup', form=form, account_data=account_info_trans)
     set_login_state('True')
 
     _format_data()

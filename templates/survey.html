@@ -22,7 +22,7 @@
         <form autocomplete="false" class="userForm">
             <div class="form-group">
                 <label for="phoneNumberInput">Phone Number*</label>
-                {{ form.phoneNumberInput(class='form-control') }}
+                {{ form.phoneNumberInput(value=account_data['phone'], class='form-control') }}
             </div>
             <div class="row">
                 <div class="col-6">
@@ -34,7 +34,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="lastNameInput">Last Name*</label>
-                        {{ form.lastNameInput(class='form-control') }}
+                        {{ form.lastNameInput(value=account_data['last_name'], class='form-control') }}
                     </div>
                 </div>
             </div>
