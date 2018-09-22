@@ -10,7 +10,7 @@ logging.basicConfig(level='INFO')
 from bs4 import BeautifulSoup
 from tesserocr import PyTessBaseAPI
 
-from graph import WordNode, DocumentGraph
+from .graph import WordNode, DocumentGraph
 
 class OCREngine:
     

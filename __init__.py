@@ -11,19 +11,23 @@ from config import Config
 
 import json
 
+from receipt.data import User
+from receipt.receipt_reader import read_receipt
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
+user = None
 
-login_data_list = list()
 
-
-with open("static/database.json") as data:
-    login_data_list = json.loads(data.read())
+with open("static/joe.json") as data:
+    entry_dict = json.load(data)
+    user = User(entry_dict)
 
 
 def set_login_false():
     open('is_logged_in.txt', 'w').write('False')
+
 
 def create_app(configfile = None):
     #app = Flask(__name__)
@@ -53,7 +57,24 @@ def index():
 def main_page():
     return render_template('home.html')
 
-#/signup?phoneNumberInput=7602126042&firstNameInput=Alexander&lastNameInput=Tuchler&emailInput=awt2124%40columbia.edu&ageInput=19&occupationInput=Student&phoneNumberInput=100000
+
+@app.route('/upload')
+def upload_page():
+    return render_template('upload.html')
+
+
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      receipt_file = request.files['file']
+      items = read_receipt(receipt_file.filename)
+      user['data']['history'].extend(items)
+
+      flash('Thanks for you receipt!')
+      print(user)
+      return redirect('home')
+
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     data_fields = ['phone', 'first_name', 'last_name', 'email', 'age', 'job', 'income', 'history']
