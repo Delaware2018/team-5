@@ -15,18 +15,6 @@
   </head>
 
   <body>
-      <script>
-          function initMap() {
-            var uluru = {lat: -25.344, lng: 131.036};
-            var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 4, center: uluru});
-            var marker = new google.maps.Marker({position: uluru, map: map});
-          }
-      </script>
-      <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-      </script>
-
    <nav class="site-header sticky-top py-1">
      <div class="container d-flex flex-column flex-md-row justify-content-between">
        <a class="py-2 d-none d-md-inline-block" href="/upload">Upload</a>
@@ -183,7 +171,6 @@
         <div class="my-3 p-3">
           <h2 class="display-5">Share about us!</h2>
           <div class="button-bar">
-              <a class="link-image" href="google.com"><img src="../static/facebook.svg" width="50" height="50" alt="facebook"></a>
               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
         </div>
