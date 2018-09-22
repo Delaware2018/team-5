@@ -12,7 +12,7 @@ class SignupForm(FlaskForm):
     emailInput = TextField(u'Email', validators=[Email()], render_kw={"placeholder": "Email"})
     phoneNumberInput = TextField(u'Phone Number', validators=[Required()], render_kw={"placeholder": "Phone Number"})
     incomeInput = IntegerField(u'Income', validators=[Required()], render_kw={"placeholder": "Income"})
-    occupationInput = TextField(u'Ocupation', validators=[Required()], render_kw={"placeholder": "Ocupation"})
+    occupationInput = TextField(u'Ocupation', validators=[Required()], render_kw={"placeholder": "Occupation"})
     ageInput = IntegerField(u'Age', validators=[Required()], render_kw={"placeholder": "Age"})
 
     submit = SubmitField(u'Submit')
