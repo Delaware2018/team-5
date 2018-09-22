@@ -1,13 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 
-from .frontend import frontend
-from .nav import nav
+from front_end import frontend
+from nav import nav
 
+app = Flask(__name__)
 
 def create_app(configfile = None):
-    app = Flask(__name__)
+    #app = Flask(__name__)
     AppConfig(app)
     Bootstrap(app)
     app.register_blueprint(frontend)
@@ -16,12 +17,12 @@ def create_app(configfile = None):
     return app
 
 
-@APP.route('/')
+@app.route('/')
 def index():
-    return flask.render_template("index.html")
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
-    APP.debug = True
-    APP.run()
+    app.debug = True
+    app.run()
 
