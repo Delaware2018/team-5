@@ -14,7 +14,7 @@ class SignupForm(FlaskForm):
     submit = SubmitField(u'Submit')
 
 class LoginForm(FlaskForm):
-    lastNameInput = TextField(u'Last Name', validators=[Required()])
+    lastNameInput = TextField(u'Last Name', validators=[Required()], render_kw={"placeholder": "Last Name"})
     phoneNumberInput = TextField(u'Phone Number', validators=[Required()], render_kw={"placeholder": "Phone Number"})
 
     submit = SubmitField(u'Submit')

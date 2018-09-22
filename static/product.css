@@ -97,3 +97,11 @@ footer, a.text-muted {
   background-color: #013769 !important;
   color: #e5e5e5
 }
+
+.button-wrapper{
+  text-align:center;
+}
+
+#paypalForm {
+  display: flex;
+}
