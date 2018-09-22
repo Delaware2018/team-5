@@ -192,4 +192,4 @@ if __name__ == "__main__":
     login_data_list = list()
     is_logged_in = True
     app.debug = True
-    app.run()
+    app.run(host = '0.0.0.0')
