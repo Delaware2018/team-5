@@ -4,8 +4,15 @@ from flask_appconfig import AppConfig
 
 from front_end import frontend
 from nav import nav
+from login_data import login_data
+
 
 app = Flask(__name__)
+login_data_list = list()
+
+with open('\static\database.json', encoding = 'utf-8') as data:
+    login_data_list = json.loads(data.read())
+
 
 def create_app(configfile = None):
     #app = Flask(__name__)
@@ -17,9 +24,11 @@ def create_app(configfile = None):
     return app
 
 
-@app.route('/')
+@app.route('/login/')
 def index():
-    return render_template("login.html")
+    return render_template("main.html")
+
+@app.route('
 
 
 if __name__ == "__main__":
