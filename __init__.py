@@ -6,11 +6,14 @@ from flask import g
 from front_end import frontend
 from nav import nav
 from login_data import login_data
+from config import Config
 
 import json
 
 
 app = Flask(__name__)
+app.config.from_object(Config)
+
 login_data_list = list()
 
 
