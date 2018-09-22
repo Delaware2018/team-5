@@ -1,7 +1,6 @@
 html,
 body {
   background-color: #01529C !important;
-  height: 100%;
 }
 
 body {
@@ -44,10 +43,15 @@ body {
   border-top-right-radius: 0;
 }
 
-.main-header {
-  
+.form-wrapper {
+  color: white;
+  margin: auto;
+  width: 80%;
+  max-width: 650px;
 }
 
-.main-header-text {
-
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
