@@ -4,9 +4,9 @@ Reads receipts from image. For Code for Good hackathon
 @author: grandpaa
 '''
 
-from data import Item
-from ocr import OCREngine
-from graph import DocumentGraph, WordNode
+from .data import Item
+from .ocr import OCREngine
+from .graph import DocumentGraph, WordNode
 
 # TODO: implement specific configs for tesseract
 def read_receipt(im: str) -> list:

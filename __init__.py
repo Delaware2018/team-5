@@ -9,8 +9,10 @@ from login_data import login_data
 from forms import SignupForm
 from config import Config
 
-
 import json
+
+from receipt.data import User
+from receipt.receipt_reader import read_receipt
 
 
 app = Flask(__name__)
@@ -19,8 +21,8 @@ app.config.from_object(Config)
 user = None
 
 with open("static/joe.json") as data:
-    user = json.load(data)
-
+    entry_dict = json.load(data)
+    user = User(entry_dict)
 
 def create_app(configfile = None):
     #app = Flask(__name__)
@@ -58,7 +60,11 @@ def upload_page():
 def upload_file():
    if request.method == 'POST':
       receipt_file = request.files['file']
+      items = read_receipt(receipt_file.filename)
+      user['data']['history'].extend(items)
+
       flash('Thanks for you receipt!')
+      print(user)
       return redirect('home')
 
 @app.route('/signup', methods=['GET', 'POST'])
