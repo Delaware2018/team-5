@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../static/favicon.png">
 
-    <title>Goodbook</title>
+    <title>NeighborGood</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap.min.css" rel="stylesheet">
@@ -16,10 +16,13 @@
     <link href="../static/main.css" rel="stylesheet">
   </head>
    <body>
-      <form action = "http://localhost:5000/uploader" method = "POST" 
+     <div class="body-wrapper">
+      <img class="mb-4" src="../static/logo.svg" alt="" width="150" height="150">
+      <form action = "http://localhost:5000/uploader" method = "POST" class="form-wrapper text-align"
          enctype = "multipart/form-data">
          <input type = "file" name = "file" />
          <input type = "submit"/>
       </form>
+      </div>
    </body>
 </html>
