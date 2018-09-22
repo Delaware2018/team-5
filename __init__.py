@@ -187,7 +187,7 @@ def profile_page():
 
 
 
-   
+#having an IP in app.run() allows us to deploy this on a server and thus avoid running from local
 if __name__ == "__main__":
     login_data_list = list()
     is_logged_in = True
