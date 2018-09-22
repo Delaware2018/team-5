@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, flash
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from flask import g
@@ -102,6 +102,21 @@ def signup():
         return render_template('survey.html', title = 'Signup', form=form)
     set_login_state('False')
     return redirect('/')
+
+@app.route('/profile')
+def profile_page():
+    out_str = ''
+    out_str += 'Name: %s %s<br />' % (user['first_name'], user['last_name'])
+    out_str += 'History: <br />'
+    
+    for item in user['data']['history']:
+        out_str += '\t%s<br />' % item
+
+    out_str += '<br />%s<br />' % user
+
+    return out_str
+
+
 
    
 if __name__ == "__main__":
