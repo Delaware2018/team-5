@@ -2,8 +2,8 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 
-from .frontend import frontend
-from .nav import nav
+from front_end import frontend
+from nav import nav
 
 
 def create_app(configfile = None):
@@ -16,12 +16,12 @@ def create_app(configfile = None):
     return app
 
 
-@APP.route('/')
+@app.route('/')
 def index():
     return flask.render_template("index.html")
 
 
 if __name__ == "__main__":
-    APP.debug = True
-    APP.run()
+    app.debug = True
+    app.run()
 
