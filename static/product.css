@@ -2,6 +2,10 @@
   max-width: 960px;
 }
 
+body {
+  background-color: #01529C !important;
+}
+
 /*
  * Custom translucent site header
  */
@@ -52,7 +56,7 @@
   right: auto;
   bottom: 0;
   left: 5%;
-  background-color: #01529C;
+  background-color: #e5e5e5;
 }
 
 
@@ -60,8 +64,8 @@
  * Extra utilities
  */
 
-.border-top { border-top: 1px solid #01529C; }
-.border-bottom { border-bottom: 1px solid #01529C; }
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
@@ -79,3 +83,16 @@
 }
 
 .overflow-hidden { overflow: hidden; }
+
+footer {
+  color: #e5e5e5;
+}
+
+a {
+  color: #e5e5e5;
+}
+
+.special {
+  color: white;
+  background-color: transparent !important;
+}
