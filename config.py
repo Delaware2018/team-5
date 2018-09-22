@@ -1,3 +1,5 @@
+#Not really used for much, however, is important for __init__.py
+
 import os
 
 class Config(object):
