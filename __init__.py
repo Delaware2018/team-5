@@ -25,8 +25,8 @@ with open("static/joe.json") as data:
     user = User(entry_dict)
 
 
-def set_login_false():
-    open('is_logged_in.txt', 'w').write('False')
+def set_login_state(state): #state should be either 'True' or 'False'
+    open('is_logged_in.txt', 'w').write(state)
 
 
 def create_app(configfile = None):
@@ -45,8 +45,7 @@ def index():
     is_logged_in = True if f[0] == "True" else False
     print(login_data_list)
     if is_logged_in == False:
-        f[0] = "True"
-        open('is_logged_in.txt', 'w').write('\n'.join(f))
+        set_login_state('True')
         return render_template("login.html")
     else:
         is_logged_in = True
@@ -97,23 +96,14 @@ def signup():
     account_data[data_fields[index]] = chars
     index += 1
     account_data[data_fields[index]] = list()
-    print(input_data)
-    print(request.full_path)
-    print(account_data)
     with open('account_data.json', 'w') as outfile:
         json.dump(account_data, outfile)
-    print(len(account_data))
     if len(account_data) < 8:
         return render_template('survey.html', title = 'Signup', form=form)
-    set_login_false()
+    set_login_state('False')
     return redirect('/')
-    '''if form.validate_on_submit():
-        print("YAY")
-        flash("Login requested for user {}, remember_me = {}", format(form.phoneNumberInput, form.firstNameInput, form.lastNameInput, form.emailInput, form.ageInput, form.occupationInput, form.incomeInput))
-        return redirect('/')
-    return render_template('survey.html', title = 'Signup', form=form)'''
 
-
+   
 if __name__ == "__main__":
     login_data_list = list()
     is_logged_in = True
