@@ -15,6 +15,18 @@
   </head>
 
   <body>
+      <script>
+          function initMap() {
+            var uluru = {lat: -25.344, lng: 131.036};
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: uluru});
+            var marker = new google.maps.Marker({position: uluru, map: map});
+          }
+      </script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+      </script>
+
    <nav class="site-header sticky-top py-1">
      <div class="container d-flex flex-column flex-md-row justify-content-between">
        <a class="py-2 d-none d-md-inline-block" href="/upload">Upload</a>
@@ -40,7 +52,7 @@
    <div class="position-relative overflow-hidden p-3 p-md-4 m-md-2 text-center bg-light special">
      <div class="p-lg-5 mx-auto my-5">
        <img class="mb-4" src="../static/logo.svg" alt="" width="150" height="150">
-       <h1 class="display-4 font-weight-normal">Hi, {{user_data.first_name}}!</h1>
+       <h1 class="display-4 font-weight-normal">Hi, Ryan!</h1>
        <h3 class="display-4 font-weight-normal">You have saved 39,234 carbons!</h3>
        <p class="lead font-weight-normal">Thank you for being a part of Goodwill community!</p>
      </div>
@@ -51,13 +63,77 @@
           <div class="my-3 p-3">
             <h2 class="display-5">User Profile</h2>
             <p class="lead">Ryan Chun</p>
-
+            <div class="row">
+              <p class="col-6">Email</p>
+              <p class="col-6">ec3255@columbia.edu</p>
+            </div>
+            <div class="row">
+              <p class="col-6">Age</p>
+              <p class="col-6">64</p>
+            </div>
+            <div class="row">
+              <p class="col-6">Occupation</p>
+              <p class="col-6">Student</p>
+            </div>
+            <div class="row">
+              <p class="col-6">Income</p>
+              <p class="col-6">$49,304</p>
+            </div>
+            <div class="row">
+              <p class="col-6">Total Donation</p>
+              <p class="col-6">$1,304</p>
+            </div>
+            <div class="row">
+              <p class="col-6">Goodwill Point</p>
+              <p class="col-6">342</p>
+            </div>
           </div>
         </div>
      <div class="bg-dark mr-md-3 px-3 px-md-5 text-center overflow-hidden">
        <div class="my-3 p-3">
          <h2 class="display-5">Leaderboard</h2>
-         <p class="lead">And an even wittier subheading.</p>
+         <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Point</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>4325</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>2314</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Blue</td>
+                <td>Berry</td>
+                <td>1324</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>786</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Code</td>
+                <td>Good</td>
+                <td>42</td>
+              </tr>
+            </tbody>
+          </table>
        </div>
      </div>
    </div>
@@ -66,6 +142,7 @@
       <div class="bg-dark mr-md-3 px-3 px-md-5 text-center overflow-hidden">
           <div class="my-3 p-3">
             <h2 class="display-5">Find Us</h2>
+            <div id="map"></div>
           </div>
         </div>
      <div class="bg-dark mr-md-3 px-3 px-md-5 text-center overflow-hidden">
