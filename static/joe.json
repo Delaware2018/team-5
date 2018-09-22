@@ -1,4 +1,14 @@
 {
+<<<<<<< HEAD
+"first_name": "Joe",
+"last_name": "Jordan",
+"user_data": {
+	"job": "Firefighter",
+	"age": 27,
+	"phone": "249-730-3819",
+	"history": [{"value": 150, "description": "trampoline", "date_added": "12/24/17"}],
+	"income": 150000
+=======
 	"first_name": "Joe",
 	"last_name": "Jordan",
 	"data": {
@@ -20,5 +30,6 @@
 		],
 		"race": "Hawaiian/Pacific Islander",
 		"income": 150000
+>>>>>>> 89c9208dc0bafd7ac5b84087b28e080aa9a28eda
 	}
 }

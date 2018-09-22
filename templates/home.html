@@ -15,7 +15,6 @@
   </head>
 
   <body>
-
    <nav class="site-header sticky-top py-1">
      <div class="container d-flex flex-column flex-md-row justify-content-between">
        <a class="py-2 d-none d-md-inline-block" href="/upload">Upload</a>
@@ -40,8 +39,8 @@
 
    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light special">
      <div class="p-lg-5 mx-auto my-5">
-       <h1 class="display-4 font-weight-normal">Hi, Ryan</h1>
-       <h3 class="display-4 font-weight-normal">You have saved 39,234 carbon!</h3>
+       <h1 class="display-4 font-weight-normal">Hi, Ryan!</h1>
+       <h3 class="display-4 font-weight-normal">You have saved 39,234 carbons!</h3>
        <p class="lead font-weight-normal">Thank you for being a part of Goodwill community!</p>
      </div>
    </div>
@@ -64,8 +63,30 @@
    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
        <div class="my-3 p-3">
-         <h2 class="display-5">Another headline</h2>
-         <p class="lead">And an even wittier subheading.</p>
+         <h2 class="display-5">Donate to us with PayPal!</h2>
+         <div>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+            <!-- Identify your business so that you can collect the payments. -->
+            <input type="hidden" name="business"
+                value="contactus@goodwill.org">
+        
+            <!-- Specify a Donate button. -->
+            <input type="hidden" name="cmd" value="_donations">
+        
+            <!-- Specify details about the contribution -->
+            <input type="hidden" name="item_name" value="Goodwill Industries International, Inc.">
+            <input type="hidden" name="item_number" value="Donation">
+            <input type="hidden" name="currency_code" value="USD">
+        
+            <!-- Display the payment button. -->
+            <input type="image" name="submit" width="150" height="50"
+            src="../static/donation.png"
+            alt="Donate">
+            <img alt="" width="1" height="1"
+            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+          </form>
+        </div>
        </div>
      </div>
      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -79,7 +100,7 @@
    <footer class="container py-5">
      <div class="row">
        <div class="col-6 col-md">
-         <h5>Connect</h5>
+         <h4>Connect</h4>
          <ul class="list-unstyled text-small">
            <li><a class="text-muted" href="#">1 (866) 317-2299</a></li>
            <li><a class="text-muted" href="#">Facebook</a></li>
@@ -90,7 +111,7 @@
          </ul>
        </div>
        <div class="col-6 col-md">
-         <h5>Employment</h5>
+         <h4>Employment</h4>
          <ul class="list-unstyled text-small">
            <li><a class="text-muted" href="#">Work for Goodwill</a></li>
            <li><a class="text-muted" href="#">Programs and Services</a></li>
@@ -98,7 +119,7 @@
          </ul>
        </div>
        <div class="col-6 col-md">
-         <h5>Find</h5>
+         <h4>Find</h4>
          <ul class="list-unstyled text-small">
            <li><a class="text-muted" href="#">Locations</a></li>
            <li><a class="text-muted" href="#">Contact Us</a></li>
@@ -106,7 +127,7 @@
          </ul>
        </div>
        <div class="col-6 col-md">
-         <h5>Get The Scoop</h5>
+         <h4>Get The Scoop</h4>
          <ul class="list-unstyled text-small">
            <li><a class="text-muted" href="#">Sales</a></li>
            <li><a class="text-muted" href="#">Events</a></li>

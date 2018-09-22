@@ -3,12 +3,18 @@ from wtforms.fields import *
 from wtforms.validators import Required, Email
 
 class SignupForm(FlaskForm):
-    firstNameInput = TextField(u'First Name', validators=[Required()], render_kw={"placeholder": "First Name"})
-    lastNameInput = TextField(u'Last Name', validators=[Required()], render_kw={"placeholder": "Last Name"})
-    emailInput = TextField(u'Email', validators=[Email()], render_kw={"placeholder": "Email"})
-    phoneNumberInput = TextField(u'Phone Number', validators=[Required()], render_kw={"placeholder": "Phone Number"})
-    incomeInput = IntegerField(u'Income', validators=[Required()], render_kw={"placeholder": "Income"})
-    occupationInput = TextField(u'Ocupation', validators=[Required()], render_kw={"placeholder": "Ocupation"})
-    ageInput = IntegerField(u'Age', validators=[Required()], render_kw={"placeholder": "Age"})
+    firstNameInput = TextField(u'First Name', validators=[Required()])
+    lastNameInput = TextField(u'Last Name', validators=[Required()])
+    emailInput = TextField(u'Email Address', validators=[Email()])
+    phoneNumberInput = TextField(u'Cell Phone Number', validators=[Required()])
+    incomeInput = IntegerField(u'Income', validators=[Required()])
+    occupationInput = TextField(u'Ocupation', validators=[Required()])
+    ageInput = IntegerField(u'Age', validators=[Required()])
+
+    submit = SubmitField(u'Submit')
+
+class LoginForm(FlaskForm):
+    lastNameInput = TextField(u'Last Name', validators=[Required()])
+    phoneNumberInput = TextField(u'Cell Phone Number', validators=[Required()])
 
     submit = SubmitField(u'Submit')
