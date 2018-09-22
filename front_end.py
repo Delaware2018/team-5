@@ -27,5 +27,5 @@ def signup_form():
     if form.validate_on_submit():
         flash("Thank you {} for signing up for the Goodwill of Delaware and Delaware County's Mobile Service!".format(escape(form.name.data)))
         return redirect(url_for('.index')) #warning: may need to change this redirect
-    return render_template('home.html', form = form) #file name here, make sure to check if name changes
+    return render_template('login.html', form = form) #file name here, make sure to check if name changes
 
