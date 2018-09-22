@@ -80,6 +80,7 @@ def main_page():
     leader_data = None
     with open('static\\account_data.json') as data:
         user_data = json.load(data)
+    print(user_data)
     full_name = user_data['first_name'] + " " + user_data['last_name']
     with open('static\\leader_data.json') as data:
         leader_data = json.load(data)
