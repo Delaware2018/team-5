@@ -63,30 +63,30 @@
       <div class="bg-dark mr-md-3 px-3 px-md-5 text-center overflow-hidden">
           <div class="my-3 p-3">
             <h2 class="display-5">User Profile</h2>
-            <p class="lead">Ryan Chun</p>
+            <p class="lead">{{user_data.first_name user_data.last_name}}</p>
             <div class="row">
               <p class="col-6">Email</p>
-              <p class="col-6">ec3255@columbia.edu</p>
+              <p class="col-6">{{user_data.email}}</p>
             </div>
             <div class="row">
               <p class="col-6">Age</p>
-              <p class="col-6">64</p>
+              <p class="col-6">{{user_data.age}}</p>
             </div>
             <div class="row">
               <p class="col-6">Occupation</p>
-              <p class="col-6">Student</p>
+              <p class="col-6">{{user_data.job}}</p>
             </div>
             <div class="row">
               <p class="col-6">Income</p>
-              <p class="col-6">$49,304</p>
+              <p class="col-6">{{user_data.import}}</p>
             </div>
             <div class="row">
               <p class="col-6">Total Donation</p>
-              <p class="col-6">$1,304</p>
+              <p class="col-6">{{user_data.donation}}</p>
             </div>
             <div class="row">
               <p class="col-6">Goodwill Point</p>
-              <p class="col-6">342</p>
+              <p class="col-6">{{user_data.total}}</p>
             </div>
           </div>
         </div>
@@ -174,7 +174,10 @@
 
               <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
 <script type="IN/Share" data-size="large" data-url="https://www.goodwillde.org/"></script>
-=======
+
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<div class="g-ytsubscribe" data-channel="goodwillde" data-layout="default" data-count="default"></div>
 
           </div>
         </div>
