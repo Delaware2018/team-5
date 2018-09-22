@@ -5,197 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../static/favicon.png">
 
-    <title>Checkout example for Bootstrap</title>
+    <title>Goodbook</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+    <link href="../static/main.css" rel="stylesheet">
   </head>
+  <body>
+      <div class="form-wrapper">
+        <img class="mb-4" src="../static/logo.svg" alt="" width="150" height="150">
 
-  <body class="bg-light">
-          
-	<h4 class="mb-3">Survey</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                
-		<p>Phone Number:<br></p>
-       		<input type="text" name="phoneNumber"><br>
-		
-		<p>Occupation:<br></p>
-        	<input type="text" name="occupation"><br><br>
-		
-		<label for="race">Race:<br></label><br>
-                <input type="radio" class="form-control" name="race" value="Asian" checked>Asian<br>
-		<input type="radio" class="form-control" name="race" value="Black">Black<br>
-		<input type="radio" class="form-control" name="race" value="Hispanic/Latino">Hispanic/Latino<br>
-		<input type="radio" class="form-control" name="race" value="Hawaiian/Pacific Islander">Hawaiian/Pacific Islander<br>
-		<input type="radio" class="form-control" name="race" value="White">White<br>
-		<input type="radio" class="form-control" name="race" value="Other">Other<br>
-              </div>
-              <div class="col-md-6 mb-3">
-                
-		<p>Income:<br></p>
-	        <input type="text" name="income"><br><br>
-
-		<label for="age">Age:</label><br><br>
-                <input type="text" class="form-control" id="age" placeholder="" value="" required>
-                </div>
-              </div>
-            </div>
-
-	<h4 class="mb-3">Billing Address</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="username">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
-                <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid country.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Choose...</option>
-                  <option>California</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
-                <div class="invalid-feedback">
-                  Zip code required.
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div>
-            <hr class="mb-4">
-
-            <h4 class="mb-3">Payment</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Credit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Debit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">PayPal</label>
-              </div>
+        <form autocomplete="false">
+            <div class="form-group">
+                <label for="phoneNumberInput">Phone Number*</label>
+                <input type="number" class="form-control" id="phoneNumberInput" placeholder="Phone Number">
             </div>
             <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="firstNameInput">First Name*</label>
+                        <input type="text" class="form-control" id="firstNameInput" placeholder="First Name">
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                <div class="invalid-feedback">
-                  Credit card number is required
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="lastNameInput">Last Name*</label>
+                        <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name">
+                    </div>
                 </div>
-              </div>
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email</label>
+                <input type="email" class="form-control" id="emailInput" placeholder="your@email.com">
             </div>
             <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                <div class="invalid-feedback">
-                  Expiration date required
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="ageInput">Age</label>
+                        <input type="number" class="form-control" id="ageInput" placeholder="Age">
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-cvv">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Security code required
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="occupationInput">Occupation</label>
+                        <input type="text" class="form-control" id="occupationInput" placeholder="Occupation">
+                    </div>
                 </div>
-              </div>
             </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
+            <div class="form-group">
+                <label for="incomeInput">Income</label>
+                <input type="number" class="form-control" id="incomeInput" placeholder="Income">
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+        </form>
+    </div>
   </body>
 </html>
-
-
