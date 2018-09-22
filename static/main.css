@@ -43,7 +43,6 @@ body {
   border-top-right-radius: 0;
 }
 
-<<<<<<< HEAD
 .form-wrapper {
   color: white;
   margin: auto;
@@ -55,12 +54,16 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-=======
-.main-header {
+<<<<<<< HEAD
 
-}
 
 .main-header-text {
 
->>>>>>> b0a8f9f8d587e278c349e8edae49236f56048d9c
 }
+=======
+}
+
+a{
+  color: white;
+}
+>>>>>>> 0b7654c04182156d442d6ed39a3c8ae94ec8a561

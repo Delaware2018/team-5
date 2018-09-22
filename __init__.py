@@ -6,12 +6,16 @@ from flask import g
 from front_end import frontend
 from nav import nav
 from login_data import login_data
+from forms import SignupForm
+from config import Config
 
 import json
 
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.config.from_object(Config)
+
 login_data_list = list()
 
 
@@ -57,6 +61,18 @@ def upload_file():
       receipt_file = request.files['file']
       flash('Thanks for you receipt!')
       return redirect('home')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = SignupForm()
+    print(form.phoneNumberInput)
+    if form.validate_on_submit():
+        print('afasoksf')
+        flash("Login requested for user {}, remember_me = {}", format(form.phoneNumberInput, form.firstNameInput, form.lastNameInput, form.emailInput, form.ageInput, form.occupationInput, form.incomeInput))
+        return redirect('/')
+    print('faijfsofioa')
+    return render_template('survey.html', title = 'Signup', form=form)
+
 
 if __name__ == "__main__":
     login_data_list = list()
