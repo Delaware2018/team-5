@@ -21,9 +21,9 @@ app.config.from_object(Config)
 user = None
 
 
-with open("static/joe.json") as data:
-    entry_dict = json.load(data)
-    user = User(entry_dict)
+# with open("static/joe.json") as data:
+#     entry_dict = json.load(data)
+#     user = User(entry_dict)
 
 
 def set_login_state(state): #state should be either 'True' or 'False'
@@ -64,15 +64,16 @@ def index():
     account_data[data_fields[index]] = chars
     compare_data = None
     
-    with open("account_data.json") as data:
+    with open("perm_data.json") as data:
         compare_data = json.load(data)
     
     if compare_data[data_fields[1]] == account_data[data_fields[1]] and compare_data[data_fields[0]] == account_data[data_fields[0]]:
         set_login_state("True")
         return redirect("home")
-    else:
+    elif account_data == {"phone":"","last_name":""}:
         return render_template("login.html", title = 'Signup', form=form)
-
+    else:
+        return redirect("signup")
 
 @app.route('/home', methods=["GET", "POST"])
 def main_page():
@@ -126,8 +127,30 @@ def signup():
         json.dump(account_data, outfile)
     if len(account_data) < 8:
         return render_template('survey.html', title = 'Signup', form=form)
-    set_login_state('False')
-    return redirect('/')
+    set_login_state('True')
+
+    _format_data()
+    return redirect('home')
+
+def _format_data():
+    global user
+
+    with open('account_data.json') as json_file:
+        raw_data = json.load(json_file)
+
+    entry_dict = {}
+    entry_dict['first_name'] = raw_data['first_name']
+    entry_dict['last_name'] = raw_data['last_name']
+
+    data_dict = {}
+    data_dict['job'] = raw_data['job']
+    data_dict['age'] = raw_data['age']
+    data_dict['history'] = raw_data['history']
+    data_dict['income'] = raw_data['income']
+
+    entry_dict['data'] = data_dict
+
+    user = User(entry_dict)
 
 @app.route('/profile')
 def profile_page():
