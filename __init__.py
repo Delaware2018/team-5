@@ -19,10 +19,9 @@ def create_app(configfile = None):
 
 @app.route('/')
 def index():
-    return render_template("login.html")
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
     app.debug = True
     app.run()
-
