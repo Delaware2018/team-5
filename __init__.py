@@ -44,6 +44,6 @@ def index():
 
 if __name__ == "__main__":
     login_data_list = list()
-    is_logged_in = False
+    is_logged_in = True
     app.debug = True
     app.run()
