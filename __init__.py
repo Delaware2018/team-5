@@ -77,9 +77,14 @@ def index():
 @app.route('/home', methods=["GET", "POST"])
 def main_page():
     user_data = None
+    leader_data = None
     with open('static\\account_data.json') as data:
         user_data = json.load(data)
     full_name = user_data['first_name'] + " " + user_data['last_name']
+    with open('static\\leader_data.json') as data:
+        leader_data = json.load(data)
+    
+    
     return render_template('home.html')
 
 
