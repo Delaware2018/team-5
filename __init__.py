@@ -9,18 +9,17 @@ from login_data import login_data
 from forms import SignupForm
 from config import Config
 
+
 import json
 
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config.from_object(Config)
+user = None
 
-login_data_list = list()
-
-
-with open("static/database.json") as data:
-    login_data_list = json.loads(data.read())
+with open("static/joe.json") as data:
+    user = json.load(data)
 
 
 def create_app(configfile = None):
