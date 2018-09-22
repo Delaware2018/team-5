@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request, flash
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from flask import g
@@ -11,6 +11,7 @@ import json
 
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 login_data_list = list()
 
 
@@ -46,6 +47,16 @@ def index():
 def main_page():
     return render_template('home.html')
 
+@app.route('/upload')
+def upload_page():
+    return render_template('upload.html')
+
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      receipt_file = request.files['file']
+      flash('Thanks for you receipt!')
+      return redirect('home')
 
 if __name__ == "__main__":
     login_data_list = list()
