@@ -6,6 +6,7 @@ from flask import g
 from front_end import frontend
 from nav import nav
 from login_data import login_data
+from forms import SignupForm
 
 import json
 
@@ -45,6 +46,12 @@ def index():
 @app.route('/home')
 def main_page():
     return render_template('home.html')
+
+
+@app.route('/signup')
+def signup():
+    form = SignupForm()
+    return render_template('signup.html', title = 'Signup', form=form)
 
 
 if __name__ == "__main__":
