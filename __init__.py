@@ -12,8 +12,8 @@ from config import Config
 
 import json
 
-##from receipt.data import User
-##from receipt.receipt_reader import read_receipt
+from receipt.data import User
+from receipt.receipt_reader import read_receipt
 
 
 app = Flask(__name__)
@@ -64,7 +64,7 @@ def index():
     account_data[data_fields[index]] = chars
     compare_data = None
     
-    with open("account_data.json") as data:
+    with open("static\\account_data.json") as data:
         compare_data = json.load(data)
     
     if compare_data[data_fields[1]] == account_data[data_fields[1]] and compare_data[data_fields[0]] == account_data[data_fields[0]]:
@@ -74,10 +74,10 @@ def index():
         return render_template("login.html", title = 'Signup', form=form)
 
 
-@app.route('/home')
+@app.route('/home', methods=["GET", "POST"])
 def main_page():
     user_data = None
-    with open('account_data.json') as data:
+    with open('static\\account_data.json') as data:
         user_data = json.load(data)
     full_name = user_data['first_name'] + " " + user_data['last_name']
     return render_template('home.html')
@@ -102,7 +102,7 @@ def upload_file():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    data_fields = ['phone', 'first_name', 'last_name', 'email', 'age', 'job', 'income', 'history']
+    data_fields = ['phone', 'first_name', 'last_name', 'email', 'age', 'job', 'income', 'history', 'total']
     form = SignupForm()
     account_data = dict()
     input_data = request.full_path[8:]
@@ -122,7 +122,7 @@ def signup():
     account_data[data_fields[index]] = chars
     index += 1
     account_data[data_fields[index]] = list()
-    with open('account_data.json', 'w') as outfile:
+    with open('static\\account_data.json', 'w') as outfile:
         json.dump(account_data, outfile)
     if len(account_data) < 8:
         return render_template('survey.html', title = 'Signup', form=form)
