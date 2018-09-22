@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from flask import g
@@ -39,7 +39,12 @@ def index():
         return render_template("login.html")
     else:
         is_logged_in = True
-        return render_template("home.html")
+        return redirect("home")
+
+
+@app.route('/home')
+def main_page():
+    return render_template('home.html')
 
 
 if __name__ == "__main__":
