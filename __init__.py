@@ -83,6 +83,10 @@ def main_page():
     full_name = user_data['first_name'] + " " + user_data['last_name']
     with open('static\\leader_data.json') as data:
         leader_data = json.load(data)
+    combined_data = list()
+    combined_data.append(user_data)
+    for d in leader_data:
+        combined_data.append(d)
     
     
     return render_template('home.html')
