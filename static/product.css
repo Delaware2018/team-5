@@ -9,6 +9,10 @@ body {
 /*
  * Custom translucent site header
  */
+#map {
+  height: 200px;
+  width: 200px;
+}
 
 .site-header {
   background-color: rgba(0, 0, 0, .85);
