@@ -98,10 +98,6 @@ footer, a.text-muted {
   color: #e5e5e5
 }
 
-.button-wrapper{
-  text-align:center;
-}
-
-#paypalForm {
+.button-bar {
   display: flex;
 }
