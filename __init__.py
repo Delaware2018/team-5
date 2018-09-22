@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from flask import g
@@ -6,11 +6,8 @@ from flask import g
 from front_end import frontend
 from nav import nav
 from login_data import login_data
-<<<<<<< HEAD
 from forms import SignupForm
-=======
 from config import Config
->>>>>>> 49658c8517b6553336adf3ea7e88ca307ba4d3f2
 
 import json
 
@@ -54,10 +51,16 @@ def main_page():
     return render_template('home.html')
 
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
-    return render_template('signup.html', title = 'Signup', form=form)
+    print(form.phoneNumberInput)
+    if form.validate_on_submit():
+        print('afasoksf')
+        flash("Login requested for user {}, remember_me = {}", format(form.phoneNumberInput, form.firstNameInput, form.lastNameInput, form.emailInput, form.ageInput, form.occupationInput, form.incomeInput))
+        return redirect('/')
+    print('faijfsofioa')
+    return render_template('survey.html', title = 'Signup', form=form)
 
 
 if __name__ == "__main__":

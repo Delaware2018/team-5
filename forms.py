@@ -1,13 +1,14 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms.fields import *
 from wtforms.validators import Required, Email
 
-class SignupForm(Form):
-    first_name = TextField(u'First Name', validators=[Required()])
-    last_name = TextField(u'Last Name', validators=[Required()])
-    email = TextField(u'Email Address', validators=[Email()])
-    phone_number = TextField(u'Cell Phone Number', validators=[Required()])
-    income = IntegerField(u'Income', validators=[Required()])
-    occupation = TextField(u'Ocupation', validators=[Required()])
+class SignupForm(FlaskForm):
+    firstNameInput = TextField(u'First Name', validators=[Required()])
+    lastNameInput = TextField(u'Last Name', validators=[Required()])
+    emailInput = TextField(u'Email Address', validators=[Email()])
+    phoneNumberInput = TextField(u'Cell Phone Number', validators=[Required()])
+    incomeInput = IntegerField(u'Income', validators=[Required()])
+    occupationInput = TextField(u'Ocupation', validators=[Required()])
+    ageInput = IntegerField(u'Age', validators=[Required()])
 
     submit = SubmitField(u'Submit')
