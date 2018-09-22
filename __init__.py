@@ -31,12 +31,22 @@ def create_app(configfile = None):
 
 @app.route('/')
 def index():
+<<<<<<< HEAD
     if is_logged_in == False:
         is_logged_in = True
         return render_template("login.html")
     else:
         is_logged_in = True
         return render_template("home.html")
+=======
+<<<<<<< HEAD
+    return render_template("home.html")
+=======
+    return render_template("main.html")
+
+@app.route('
+>>>>>>> a749b9e23a3f48574ff39bfcd9847bb133e5d3a1
+>>>>>>> 7d3544f92406d0a5419d074b9f15cfd563bca428
 
 
 if __name__ == "__main__":
