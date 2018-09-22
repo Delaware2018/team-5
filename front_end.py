@@ -18,7 +18,7 @@ nav.register_element('frontend_top', Navbar(
 
 @frontend.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @frontend.route('/form/', methods = ('GET', 'POST'))
 def signup_form():

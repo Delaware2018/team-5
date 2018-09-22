@@ -19,7 +19,7 @@ def create_app(configfile = None):
 
 @app.route('/')
 def index():
-    return Flask.render_template("index.html")
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
