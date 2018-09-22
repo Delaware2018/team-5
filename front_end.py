@@ -6,6 +6,10 @@ from markupsafe import escape
 from forms import SignupForm
 from nav import nav
 
+#This file is not used for much, however, it it allows for further
+#potential for customization of back end system supporting the
+#front end
+
 frontend = Blueprint('frontend', __name__)
 
 nav.register_element('frontend_top', Navbar(
