@@ -84,10 +84,13 @@ def main_page():
     with open('static\\leader_data.json') as data:
         leader_data = json.load(data)
     combined_data = list()
+    total = 0
+    for event in user_data["history"]:
+        total += event["value"]
+    user_data["total"] = total
     combined_data.append(user_data)
     for d in leader_data:
         combined_data.append(d)
-
     
     return render_template('home.html')
 
