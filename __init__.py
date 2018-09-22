@@ -6,12 +6,18 @@ from flask import g
 from front_end import frontend
 from nav import nav
 from login_data import login_data
+<<<<<<< HEAD
 from forms import SignupForm
+=======
+from config import Config
+>>>>>>> 49658c8517b6553336adf3ea7e88ca307ba4d3f2
 
 import json
 
 
 app = Flask(__name__)
+app.config.from_object(Config)
+
 login_data_list = list()
 
 
@@ -56,6 +62,6 @@ def signup():
 
 if __name__ == "__main__":
     login_data_list = list()
-    is_logged_in = False
+    is_logged_in = True
     app.debug = True
     app.run()
