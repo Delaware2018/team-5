@@ -15,6 +15,7 @@ import json
 from receipt.data import User
 from receipt.receipt_reader import read_receipt
 
+import os.path
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -64,7 +65,7 @@ def index():
     account_data[data_fields[index]] = chars
     compare_data = None
     
-    with open("perm_data.json") as data:
+    with open(os.path.join('static','perm_data.json')) as data:
         compare_data = json.load(data)
     
     if compare_data[data_fields[1]] == account_data[data_fields[1]] and compare_data[data_fields[0]] == account_data[data_fields[0]]:
@@ -78,9 +79,14 @@ def index():
 @app.route('/home', methods=["GET", "POST"])
 def main_page():
     user_data = None
-    with open('account_data.json') as data:
+    leader_data = None
+    with open(os.path.join('static','account_data.json')) as data:
         user_data = json.load(data)
     full_name = user_data['first_name'] + " " + user_data['last_name']
+    with open(os.path.join('static','leader_data.json')) as data:
+        leader_data = json.load(data)
+    
+    
     return render_template('home.html')
 
 
@@ -103,7 +109,7 @@ def upload_file():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    data_fields = ['phone', 'first_name', 'last_name', 'email', 'age', 'job', 'income', 'history']
+    data_fields = ['phone', 'first_name', 'last_name', 'email', 'age', 'job', 'income', 'history', 'total']
     form = SignupForm()
     account_data = dict()
     input_data = request.full_path[8:]
@@ -123,7 +129,7 @@ def signup():
     account_data[data_fields[index]] = chars
     index += 1
     account_data[data_fields[index]] = list()
-    with open('account_data.json', 'w') as outfile:
+    with open(os.path.join('static','account_data.json'), 'w') as outfile:
         json.dump(account_data, outfile)
     if len(account_data) < 8:
         return render_template('survey.html', title = 'Signup', form=form)
@@ -135,7 +141,7 @@ def signup():
 def _format_data():
     global user
 
-    with open('account_data.json') as json_file:
+    with open(os.path.join('static', 'account_data.json')) as json_file:
         raw_data = json.load(json_file)
 
     entry_dict = {}
