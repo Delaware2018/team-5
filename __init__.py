@@ -12,8 +12,8 @@ from config import Config
 
 import json
 
-##from receipt.data import User
-##from receipt.receipt_reader import read_receipt
+from receipt.data import User
+from receipt.receipt_reader import read_receipt
 
 
 app = Flask(__name__)
@@ -74,7 +74,7 @@ def index():
         return render_template("login.html", title = 'Signup', form=form)
 
 
-@app.route('/home')
+@app.route('/home', methods=["GET", "POST"])
 def main_page():
     user_data = None
     with open('account_data.json') as data:
