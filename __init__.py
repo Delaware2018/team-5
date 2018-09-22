@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, flash
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from flask import g
+#all flask import statements 
 
 from front_end import frontend
 from nav import nav
@@ -9,18 +10,21 @@ from login_data import login_data
 from forms import SignupForm
 from forms import LoginForm
 from config import Config
-
-import json
-
 from receipt.data import User
 from receipt.receipt_reader import read_receipt
+#all import statements from local files
 
+import json
 import os.path
+#all import statements not fitting into other categories
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
 user = None
 account_info_trans = None
+
+#flask config settings
 
 def set_login_state(state): #state should be either 'True' or 'False'
     open('is_logged_in.txt', 'w').write(state)
@@ -36,18 +40,18 @@ def create_app(configfile = None):
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    data_fields = ["phone", "last_name"]
+    data_fields = ["phone", "last_name"] #data fields relevant for logging in
     form = LoginForm()
     f = open('is_logged_in.txt', 'r').read().splitlines()
     is_logged_in = True if f[0] == "True" else False
-    account_data = {"phone":"","last_name":""}
-    input_data = request.full_path[2:]
+    account_data = {"phone":"","last_name":""} 
+    input_data = request.full_path[2:] #strip non-important leading chars
     chars = ""
-    take_chars = False
+    take_chars = False #determines whether next char is useful or not
     index = 0
     for c in input_data:
-        if c == '&':
-            account_data[data_fields[index]] = chars
+        if c == '&': #stop scanning when & found
+            account_data[data_fields[index]] = chars #content found, put it in account_data
             index += 1
             chars = ""
             take_chars = False
@@ -76,25 +80,28 @@ def main_page():
     global user
 
     leader_data = None
+    #load current leader board data
     with open(os.path.join('static','leader_data.json')) as data:
         leader_data = json.load(data)
     combined_data = list()
     total = 0
+    #get total of user donations
     for event in user['data']["history"]:
         total += event["value"]
     user["total"] = total
+    #combine user_data and current leader_board data to generate total leader board
     combined_data.append(user)
     for d in leader_data:
         combined_data.append(d)
     
     return render_template('home.html', user=user)
 
-
+#upload receipt data for optical character recognition (OCR)
 @app.route('/upload')
 def upload_page():
     return render_template('upload.html')
 
-
+#uses the data uploaded to go through the OCR algorithm and update the database for user
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
    if request.method == 'POST':
@@ -105,7 +112,9 @@ def upload_file():
       flash('Thanks for you receipt!')
       return redirect('home')
 
-
+#similar process as login but with more inputed data fields
+#also, process will continue until data is found to be complete and
+#complaint for our stated data type requirements in forms.py
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     data_fields = ['phone', 'first_name', 'last_name', 'email', 'age', 'job', 'income', 'history', 'total']
@@ -178,4 +187,4 @@ if __name__ == "__main__":
     login_data_list = list()
     is_logged_in = True
     app.debug = True
-    app.run()
+    app.run(host = '0.0.0.0')

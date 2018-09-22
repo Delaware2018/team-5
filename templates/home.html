@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <!--  This file is used for the main page of the website in which the leaderboard, the nav bar, social media, and donation options pop up  -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,7 +12,7 @@
     <link href="../static/bootstrap.min.css" rel="stylesheet">
 
     <link href="../static/product.css" rel="stylesheet">
-    <title>Goodbook</title>
+    <title>NeighborGood</title>
   </head>
 
   <body>
@@ -78,11 +79,11 @@
             </div>
             <div class="row">
               <p class="col-6">Income</p>
-              <p class="col-6">{{ user.data.income }}</p>
+              <p class="col-6">${{ user.data.income }}</p>
             </div>
             <div class="row">
               <p class="col-6">Total Donation</p>
-              <p class="col-6">{{ user.total }}</p>
+              <p class="col-6">${{ user.total }}</p>
             </div>
             <div class="row">
               <p class="col-6">Goodwill Point</p>
