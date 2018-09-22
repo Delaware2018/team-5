@@ -5,9 +5,10 @@ from flask_appconfig import AppConfig
 from front_end import frontend
 from nav import nav
 
+app = Flask(__name__)
 
 def create_app(configfile = None):
-    app = Flask(__name__)
+    #app = Flask(__name__)
     AppConfig(app)
     Bootstrap(app)
     app.register_blueprint(frontend)
