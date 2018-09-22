@@ -1,0 +1,57 @@
+[
+    {
+        "first_name": "Alex", 
+        "last_name": "Tuchler", 
+        "age": "19", 
+        "phone": "7602126042", 
+        "job": "Student",
+        "income": "10000",
+        "email": "awt2124%40columbia.edu",
+        "history": [],
+        "total": "9283"
+    },
+    {
+        "first_name": "Ryan", 
+        "last_name": "Chun", 
+        "age": "24", 
+        "phone": "8455412363", 
+        "job": "Student",
+        "income": "10000",
+        "email": "ec3255%40columbia.edu",
+        "history": [],
+        "total": "10238"
+    },
+    {
+        "first_name": "Joe", 
+        "last_name": "Kim", 
+        "age": "19", 
+        "phone": "1111111111", 
+        "job": "Student",
+        "income": "10000",
+        "email": "rw3523%40columbia.edu",
+        "history": [],
+        "total": "13"
+    },
+    {
+        "first_name": "Mohammad", 
+        "last_name": "Ali", 
+        "age": "55", 
+        "phone": "2345563363", 
+        "job": "Student",
+        "income": "10000",
+        "email": "av2124%40columbia.edu",
+        "history": [],
+        "total": "2111"
+    },
+    {
+        "first_name": "Code", 
+        "last_name": "Goodie", 
+        "age": "51", 
+        "phone": "1231234331", 
+        "job": "Student",
+        "income": "10000",
+        "email": "awt2124%40columbia.edu",
+        "history": [],
+        "total": "2222"
+    }
+]
