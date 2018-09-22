@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <!--  This file is used for the input of new user data so that their data can be used to log in the website  -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -22,7 +23,7 @@
         <form autocomplete="false" class="userForm">
             <div class="form-group">
                 <label for="phoneNumberInput">Phone Number*</label>
-                {{ form.phoneNumberInput(class='form-control') }}
+                {{ form.phoneNumberInput(value=account_data['phone'], class='form-control') }}
             </div>
             <div class="row">
                 <div class="col-6">
@@ -34,7 +35,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="lastNameInput">Last Name*</label>
-                        {{ form.lastNameInput(class='form-control') }}
+                        {{ form.lastNameInput(value=account_data['last_name'], class='form-control') }}
                     </div>
                 </div>
             </div>
