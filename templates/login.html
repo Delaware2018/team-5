@@ -21,9 +21,9 @@
       <img class="mb-4" src="../static/logo.svg" alt="" width="150" height="150">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputNumber" class="sr-only">Phone Number</label>
-      <input type="text" id="inputEmail" class="form-control" placeholder="Phone Number" required autofocus>
-      <label for="inputPassword" class="sr-only">Last Name</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Last Name" required>
+      {{ form.phoneNumberInput(class='form-control') }}
+      <label for="lastNameInput" class="sr-only">Last Name</label>
+      {{ form.firstNameInput(class='form-control') }}
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
   </body>

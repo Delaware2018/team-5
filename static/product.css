@@ -84,15 +84,16 @@ body {
 
 .overflow-hidden { overflow: hidden; }
 
-footer {
-  color: #e5e5e5;
-}
-
-a {
-  color: #e5e5e5;
+footer, a.text-muted {
+  color: #e5e5e5 !important;
 }
 
 .special {
-  color: white;
+  color: #e5e5e5;
   background-color: transparent !important;
+}
+
+.bg-dark {
+  background-color: #013769 !important;
+  color: #e5e5e5
 }
